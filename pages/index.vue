@@ -1,68 +1,52 @@
 <template>
-  <section class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        renamer
-      </h1>
-      <h2 class="subtitle">
-        Rename your friend
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >GitHub</a>
+  <section class="container renamer-main-section">
+    <div class="panel renamer-names">
+      <div class="panel-heading">
+        Names
       </div>
+      <name v-for="name in sortedNames" :key="name" :name="name" />
+      <form class="panel-block" @submit.prevent="addName">
+        <input v-model="newName" class="input renamer-names--input"></input>
+        <button type="submit" class="button">
+          +
+        </button>
+      </form>
     </div>
   </section>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-
+import Name from '~/components/Name'
 export default {
   components: {
-    Logo
+    Name
+  },
+  data () {
+    return {
+      newName: ''
+    }
+  },
+  computed: {
+    sortedNames () {
+      return Object.keys(this.$store.state.names).sort()
+    }
+  },
+  methods: {
+    addName () {
+      this.$store.dispatch('createName', this.newName)
+      this.newName = ''
+    }
   }
 }
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
+.renamer-main-section {
   display: flex;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  margin-top: 4em;
 }
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+.renamer-names--input {
+  margin-right: 0.5em;
 }
 </style>
