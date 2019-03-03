@@ -7,6 +7,7 @@
             Renamer
           </span>
         </div>
+        <auth />
       </nav>
     </header>
     <main>
@@ -15,6 +16,12 @@
   </div>
 </template>
 
-<style>
+<script>
+import Auth from '~/components/Auth'
 
-</style>
+export default {
+  components: {
+    Auth
+  }
+}
+</script>
