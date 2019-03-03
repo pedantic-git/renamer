@@ -24,16 +24,15 @@ export default {
     name: {
       type: String,
       required: true
-    }
-  },
-  computed: {
-    value () {
-      return this.$store.state.names[this.name]
+    },
+    value: {
+      type: Number,
+      required: true
     }
   },
   methods: {
     vote () {
-      this.$store.commit('voteName', this.name)
+      this.$emit('vote')
     }
   }
 }

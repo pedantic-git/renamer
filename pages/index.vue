@@ -4,9 +4,9 @@
       <div class="panel-heading">
         Names
       </div>
-      <name v-for="name in sortedNames" :key="name" :name="name" />
-      <form class="panel-block" @submit.prevent="addName">
-        <input v-model="newName" class="input renamer-names--input"></input>
+      <name v-for="name in sortedNames" :key="name.name" v-bind="name" v-on:vote="addName(name.name)" />
+      <form class="panel-block" @submit.prevent="addNewName">
+        <input v-model="newName" class="input renamer-names--input" placeholder="...or suggest a name"></input>
         <button type="submit" class="button">
           +
         </button>
@@ -17,6 +17,10 @@
 
 <script>
 import Name from '~/components/Name'
+
+import { db } from '~/plugins/firebase'
+const names = db.collection('names')
+
 export default {
   components: {
     Name
@@ -28,13 +32,30 @@ export default {
   },
   computed: {
     sortedNames () {
-      return Object.keys(this.$store.state.names).sort()
+      return this.$store.state.names.concat().sort((a, b) => {
+        if (a.name < b.name) return -1
+        if (a.name > b.name) return 1
+        return 0
+      })
     }
   },
+  created () {
+    this.$store.dispatch('setNamesRef', names)
+  },
   methods: {
-    addName () {
-      this.$store.dispatch('createName', this.newName)
+    addNewName () {
+      this.addName(this.newName)
       this.newName = ''
+    },
+    addName (nameStr) {
+      const fbname = names.doc(nameStr)
+      fbname.get().then((doc) => {
+        if (doc.exists) {
+          fbname.update({ value: doc.data().value + 1 })
+        } else {
+          fbname.set({ name: nameStr, value: 1 })
+        }
+      })
     }
   }
 }
