@@ -1,15 +1,15 @@
 <template>
   <div class="renamer-name panel-block">
-    <div class="level" style="width:100%">
+    <div class="level is-mobile" style="width:100%">
       <div class="level-left">
-        <div class="level-item">
+        <span class="level-item">
           {{ name }}
-        </div>
+        </span>
       </div>
       <div class="level-right">
-        <div class="level-item tag is-link">
+        <span class="level-item tag is-link">
           {{ value }}
-        </div>
+        </span>
         <button class="button level-item" @click="vote">
           +
         </button>
