@@ -1,5 +1,12 @@
 const pkg = require('./package')
 
+// only add `router.base = '/renamer/'` if `DEPLOY_ENV` is `GH_PAGES`
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/renamer/'
+  }
+} : {}
+
 module.exports = {
   mode: 'spa',
 
@@ -69,5 +76,6 @@ module.exports = {
         })
       }
     }
-  }
+  },
+  ...routerBase
 }
