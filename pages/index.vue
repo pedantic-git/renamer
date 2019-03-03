@@ -5,7 +5,7 @@
         Names
       </div>
       <name v-for="name in sortedNames" :key="name.name" v-bind="name" @vote="addName(name.name)" />
-      <form class="panel-block" @submit.prevent="addNewName">
+      <form class="panel-block" @submit.prevent="addNewName" v-if="$store.state.user">
         <input v-model="newName" class="input renamer-names--input" placeholder="...or suggest a name"></input>
         <button type="submit" class="button">
           +
@@ -69,6 +69,9 @@ export default {
   flex-direction: column;
   align-items: center;
   margin-top: 4em;
+}
+.renamer-names {
+  min-width: 20em;
 }
 .renamer-names--input {
   margin-right: 0.5em;
