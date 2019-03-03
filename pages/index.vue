@@ -49,12 +49,14 @@ export default {
     },
     addName (nameStr) {
       const fbname = names.doc(nameStr)
-      fbname.get().then((doc) => {
-        if (doc.exists) {
-          fbname.update({ value: doc.data().value + 1 })
-        } else {
-          fbname.set({ name: nameStr, value: 1 })
-        }
+      db.runTransaction((t) => {
+        t.get(fbname).then((doc) => {
+          if (doc.exists) {
+            fbname.update({ value: doc.data().value + 1 })
+          } else {
+            fbname.set({ name: nameStr, value: 1 })
+          }
+        })
       })
     }
   }
