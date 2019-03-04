@@ -2,17 +2,27 @@
   <div class="renamer-main">
     <section class="section">
       <div class="container">
-        <h1 class="title is-2 is-spaced">Help rename your friend</h1>
-        <h2 class="subtitle is-spaced"><a href="#details">➔ What's this?</a></h2>
-        <div v-if="!$store.state.user" class="notification is-warning">You are not signed in. Please sign in above to make suggestions.</div>
+        <h1 class="title is-2 is-spaced">
+          Help rename your friend
+        </h1>
+        <h2 class="subtitle is-spaced">
+          <a href="#details">
+            ➔ What's this?
+          </a>
+        </h2>
+        <div v-if="!$store.state.user" class="notification is-warning">
+          You are not signed in. Please sign in above to make suggestions.
+        </div>
       </div>
     </section>
     <section class="section">
-      <names></names>
+      <names />
     </section>
     <section class="section">
-      <div class="box content" id="details">
-        <h2 class="has-text-primary">What's this?</h2>
+      <div id="details" class="box content">
+        <h2 class="has-text-primary">
+          What's this?
+        </h2>
         <p>Around this time last year, your friend <a href="https://twitter.com/pedantic_git">@pedantic_git</a> began the process of coming out to the world <a href="http://richd.me/2018/10/the-im-non-binary-blog-post/">as non-binary</a>.</p>
         <p>Since then, they've continued to be known by a name that is a variant of their birth name, and it doesn't fit. But naming things is hard! So they're asking for your help.</p>
         <h3>How to use this thing</h3>
