@@ -40,7 +40,9 @@ export const actions = {
   addName ({ state }, nameStr) {
     if (state.user === null) return // must be signed in
 
-    const nameDoc = names.doc(nameStr)
+    const key = nameStr.replace('/', '__')
+
+    const nameDoc = names.doc(key)
     db.runTransaction((t) => {
       return t.get(nameDoc).then((doc) => {
         if (doc.exists) {
