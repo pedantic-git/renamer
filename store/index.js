@@ -21,8 +21,13 @@ export const actions = {
   setNamesRef: firebaseAction(({ bindFirebaseRef }, ref) => {
     bindFirebaseRef('names', ref)
   }),
-  setUser ({ commit }, { displayName, uid, email }) {
-    commit('setUser', { displayName, uid, email })
+  setUser ({ commit }, user) {
+    if (user === null) {
+      commit('setUser', null)
+    } else {
+      const { displayName, uid, email } = user
+      commit('setUser', { displayName, uid, email })
+    }
   },
   googleLogin ({ commit }) {
     firebase.auth().signInWithPopup(googleProvider)
