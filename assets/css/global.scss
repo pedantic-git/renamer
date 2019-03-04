@@ -1,0 +1,11 @@
+// https://coolors.co/533a71-6184d8-50c5b7-9cec5b-f0f465
+$purple: #533A71;
+$blue:   #6184d8;
+$yellow: #F0F465;
+$primary: $purple;
+@import "bulma/bulma.sass";
+
+html, body {
+  background-color: $white-ter;
+  height: 100%;
+}
