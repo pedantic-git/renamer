@@ -7,7 +7,9 @@
             Renamer
           </span>
         </div>
-        <auth />
+        <div class="navbar-menu is-active">
+          <auth />
+        </div>
       </nav>
     </header>
     <main>

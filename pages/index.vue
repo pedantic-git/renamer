@@ -5,7 +5,7 @@
         Names
       </div>
       <name v-for="name in sortedNames" :key="name.name" v-bind="name" @vote="addName(name.name)" />
-      <form class="panel-block" @submit.prevent="addNewName" v-if="$store.state.user">
+      <form v-if="$store.state.user" class="panel-block" @submit.prevent="addNewName">
         <input v-model="newName" class="input renamer-names--input" placeholder="...or suggest a name"></input>
         <button type="submit" class="button">
           +
@@ -16,10 +16,10 @@
 </template>
 
 <script>
-import Name from '~/components/Name'
-
+import { mapActions } from 'vuex'
 import { db } from '~/plugins/firebase'
-const names = db.collection('names')
+
+import Name from '~/components/Name'
 
 export default {
   components: {
@@ -40,25 +40,16 @@ export default {
     }
   },
   created () {
-    this.$store.dispatch('setNamesRef', names)
+    this.$store.dispatch('setNamesRef', db.collection('names'))
   },
   methods: {
     addNewName () {
       this.addName(this.newName)
       this.newName = ''
     },
-    addName (nameStr) {
-      const nameDoc = names.doc(nameStr)
-      db.runTransaction((t) => {
-        return t.get(nameDoc).then((doc) => {
-          if (doc.exists) {
-            t.update(nameDoc, { value: doc.data().value + 1 })
-          } else {
-            t.set(nameDoc, { name: nameStr, value: 1 })
-          }
-        })
-      })
-    }
+    ...mapActions([
+      'addName'
+    ])
   }
 }
 </script>

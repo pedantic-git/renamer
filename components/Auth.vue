@@ -1,15 +1,14 @@
 <template>
-  <div class="auth level">
+  <div class="navbar-end">
     <template v-if="$store.state.user">
-      {{ $store.state.user.displayName }}
-      <button class="button" @click="logout">
-        Sign out
-      </button>
+      <a class="navbar-item" @click="logout">
+        Sign out {{ $store.state.user.displayName }}
+      </a>
     </template>
     <template v-else>
-      <button class="button" @click="googleLogin">
+      <a class="navbar-item" @click="googleLogin">
         Sign in with Google
-      </button>
+      </a>
     </template>
   </div>
 </template>

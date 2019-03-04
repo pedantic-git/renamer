@@ -10,7 +10,7 @@
         <span class="level-item tag is-link">
           {{ value }}
         </span>
-        <button class="button level-item" @click="vote" v-if="$store.state.user">
+        <button v-if="$store.state.user" class="button level-item" @click="vote">
           +
         </button>
       </div>
