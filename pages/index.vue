@@ -28,9 +28,9 @@
         <h3>How to use this thing</h3>
         <p>The table up there has a list of all the names that have been suggested so far and a tally of their votes.</p>
         <p>You'll need to sign in using a Google account using the button at the top of the page before you are given the controls. Sorry if you don't have a Google account.</p>
-        <p>Any names you think sound like a good name for your friend, click the + next to them to add a vote.</p>
-        <p>Or suggest another name (see below) by filling in the blank box at the bottom and clicking the +.</p>
-        <p>You can suggest as many names as you like and vote as many times as you like. Go wild, if you like.</p>
+        <p><b>Any names you think sound like a good name for your friend, click the <span class="icon has-text-link"><i class="material-icons">thumb_up</i></span> next to them to add a vote.</b></p>
+        <p>Or suggest another name (see below) by filling in the blank box at the bottom and clicking the <span class="icon has-text-link"><i class="material-icons">add</i></span>.</p>
+        <p>You can suggest as many names as you like and <b>vote as many times as you like</b>. Go wild, if you like.</p>
         <h3>What are good names?</h3>
         <p>Don't feel restricted by this, but here are some ideas about names I'm likely to like:</p>
         <ul>
@@ -74,5 +74,8 @@ export default {
 }
 #details {
   max-width: 55em;
+}
+#details span {
+  vertical-align: middle;
 }
 </style>

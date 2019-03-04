@@ -6,8 +6,10 @@
     <name v-for="name in sortedNames" :key="name.name" v-bind="name" @vote="addName(name.name)" />
     <form v-if="$store.state.user" class="panel-block" @submit.prevent="addNewName">
       <input v-model="newName" class="input renamer-names--input" placeholder="...or suggest a name"></input>
-      <button type="submit" class="button">
-        +
+      <button type="submit" class="button" title="Add name">
+        <span class="icon has-text-link">
+          <i class="material-icons">add</i>
+        </span>
       </button>
     </form>
   </div>

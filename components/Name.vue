@@ -7,11 +7,13 @@
         </span>
       </div>
       <div class="level-right">
-        <span class="level-item tag is-link">
+        <span class="level-item tag">
           {{ value }}
         </span>
-        <button v-if="$store.state.user" class="button level-item" @click="vote">
-          +
+        <button v-if="$store.state.user" class="button level-item" title="I like this name!" @click="vote">
+          <span class="icon has-text-link">
+            <i class="material-icons">thumb_up</i>
+          </span>
         </button>
       </div>
     </div>
