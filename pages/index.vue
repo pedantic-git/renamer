@@ -29,6 +29,7 @@
           <li>Names that have their origins in Western Europe. I don't want to feel like I'm appropriating a culture that I don't have any part of.</li>
           <li>Plants, trees, nature names are good.</li>
           <li>Mythology and literature names might be good too.</li>
+          <li>Totally made up names are good too!</li>
           <li>Could be double-barrelled (like the non-binary author Meg-John Barker) if it's really good.</li>
           <li>Preferably not already the name of a member of the local non-binary community. I know you probably can't know, but this is likely to affect the decision.</li>
           <li>No emojis or other extended Unicode characters please. And it should start with a capital letter.</li>
