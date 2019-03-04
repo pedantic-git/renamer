@@ -50,6 +50,7 @@ export const actions = {
         }
       })
     })
-    log.add({ uid: state.user.uid, email: state.user.email, name: nameStr })
+    const ts = firebase.firestore.FieldValue.serverTimestamp()
+    log.add({ uid: state.user.uid, email: state.user.email, name: nameStr, time: ts })
   }
 }
