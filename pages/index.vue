@@ -35,7 +35,7 @@
         <p>Don't feel restricted by this, but here are some ideas about names I'm likely to like:</p>
         <ul>
           <li>"Gender neutral" names; i.e. not used almost exclusively by either male or female people.</li>
-          <li>Names that don't make a British person think "man" when they hear them without seeing someone's face. For example, names like Ashley, Chris and Sam are gender-neutral but have a "male bias" attached to them. Names that make people think "woman" are fine.</li>
+          <li>Names that don't make a British person think "man" when they hear them without seeing someone's face. For example, names like Ashley, Chris and Sam are gender-neutral but perhaps have a "male bias" attached to them in this country. Names that make people think "woman" are fine.</li>
           <li>Names that have their origins in Western Europe. I don't want to feel like I'm appropriating a culture that I don't have any part of.</li>
           <li>Plants, trees, nature names are good.</li>
           <li>Mythology and literature names might be good too.</li>
