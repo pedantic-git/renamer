@@ -89,9 +89,12 @@ export default {
   justify-content: center;
 }
 .renamer-names__panel {
-  margin: 0.5em;
+  margin: 0 0.5em;
   width: 20em;
   background-color: #ffffff;
+}
+.renamer-names__panel--add {
+  margin-top: 1em;
 }
 .renamer-names__input {
   margin-right: 0.5em;
